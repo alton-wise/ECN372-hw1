@@ -1,4 +1,3 @@
-cat <<'EOF' > scripts/02_make_figures.R
 suppressPackageStartupMessages({
   library(gapminder)
   library(dplyr)
@@ -62,12 +61,10 @@ p2 <- ggplot(summ_cont_year, aes(x = year)) +
     title = "Life Expectancy Over Time by Continent",
     subtitle = "Ribbon = IQR (25–75%); solid = median; dashed = pop-weighted mean",
     x = "Year",
-    y = "Life expectancy (years)"
-  ) +
+    y = "Life expectancy (years)" ) +
   theme_minimal(base_size = 12) +
   theme(legend.position = "none")
 
 ggsave("output/figure-2-ribbon-median-weighted.pdf", p2, width = 10, height = 7)
 
 message("Done! Figures saved to output/")
-EOF
